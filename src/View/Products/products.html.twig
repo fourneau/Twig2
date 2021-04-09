@@ -1,0 +1,22 @@
+{% block content %}
+    <h1>Products</h1>
+    <ul>       
+        {% for product in products %}
+            {% if loop.first %}
+                <li class="row"> {# open row #}
+            {% endif %}
+
+                {{product }}
+
+            {% if loop.index % 3 == 0 %}
+                </li><li class="row">
+            {% endif %}
+            {% if loop.last %}
+                </li> {# close last row #}
+            {% endif %}
+        {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
+    </ul>
+    {{dump(products)}}
+{% endblock %}
